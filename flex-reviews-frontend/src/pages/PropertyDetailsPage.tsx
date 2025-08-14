@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { NormalizedReview } from '../types/review';
 import StarRating from '../components/StarRating';
 
@@ -5,7 +6,33 @@ interface PropertyDetailsPageProps {
     approvedReviews: NormalizedReview[];
 }
 
+const images = [
+    "https://placehold.co/1200x600/E0E0E0/333333?text=Property+Hero+Image+1",
+    "https://placehold.co/1200x600/D0D0D0/444444?text=Property+Hero+Image+2",
+    "https://placehold.co/1200x600/C0C0C0/555555?text=Property+Hero+Image+3",
+    "https://placehold.co/1200x600/B0B0B0/666666?text=Property+Hero+Image+4",
+    "https://placehold.co/1200x600/A0A0A0/777777?text=Property+Hero+Image+5"
+];
+
 const PropertyDetailsPage = ({ approvedReviews }: PropertyDetailsPageProps) => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const handleThumbnailClick = (index: number) => {
+        setCurrentImageIndex(index);
+    };
+
+    const handlePrevClick = () => {
+        setCurrentImageIndex((prevIndex) =>
+            prevIndex === 0 ? images.length - 1 : prevIndex - 1
+        );
+    };
+
+    const handleNextClick = () => {
+        setCurrentImageIndex((prevIndex) =>
+            prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        );
+    };
+
     return (
         <div className="min-h-screen bg-gray-50 p-6 font-inter text-gray-900">
             <header className="bg-white shadow-sm rounded-lg p-4 mb-6 flex justify-between items-center max-w-7xl mx-auto">
@@ -16,16 +43,35 @@ const PropertyDetailsPage = ({ approvedReviews }: PropertyDetailsPageProps) => {
             <div className="max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-lg">
                 <h2 className="text-3xl font-semibold mb-4 text-gray-800">Charming Apartment in Belsize Park</h2>
                 <div className="mb-8">
-                    <img
-                        src="https://placehold.co/1200x600/E0E0E0/333333?text=Property+Hero+Image"
-                        alt="Property Hero"
-                        className="w-full h-auto rounded-lg shadow-md mb-4"
-                    />
+                    <div className="relative w-full h-96 rounded-lg shadow-md mb-4 overflow-hidden">
+                        <img
+                            src={images[currentImageIndex]}
+                            alt={`Property Hero ${currentImageIndex + 1}`}
+                            className="w-full h-full object-cover rounded-lg"
+                        />
+                        <button
+                            onClick={handlePrevClick}
+                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition"
+                        >
+                            &#8249;
+                        </button>
+                        <button
+                            onClick={handleNextClick}
+                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition"
+                        >
+                            &#8250;
+                        </button>
+                    </div>
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                        <img src="https://placehold.co/300x200/F0F0F0/555555?text=Gallery+1" alt="Gallery 1" className="w-full h-auto rounded-md" />
-                        <img src="https://placehold.co/300x200/F0F0F0/555555?text=Gallery+2" alt="Gallery 2" className="w-full h-auto rounded-md" />
-                        <img src="https://placehold.co/300x200/F0F0F0/555555?text=Gallery+3" alt="Gallery 3" className="w-full h-auto rounded-md" />
-                        <img src="https://placehold.co/300x200/F0F0F0/555555?text=Gallery+4" alt="Gallery 4" className="w-full h-auto rounded-md" />
+                        {images.map((imgSrc, index) => (
+                            <img
+                                key={index}
+                                src={imgSrc}
+                                alt={`Gallery Thumbnail ${index + 1}`}
+                                className={`w-full h-auto rounded-md cursor-pointer border-2 ${index === currentImageIndex ? 'border-indigo-500' : 'border-transparent'} hover:border-indigo-300 transition-all duration-200`}
+                                onClick={() => handleThumbnailClick(index)}
+                            />
+                        ))}
                     </div>
                 </div>
 
