@@ -86,4 +86,4 @@ You can now interact with the Flex Living Reviews Dashboard in your web browser,
 
 <img width="1920" height="1158" alt="Vite-React-TS-08-14-2025_03_11_PM" src="https://github.com/user-attachments/assets/88f3c909-854e-44b6-857f-9030adeb0c06" />
 
-<img width="1920" height="1158" alt="Vite-React-TS-08-14-2025_03_11_PM" src="https://github.com/user-attachments/assets/2be15234-b0d1-4b6b-bc54-79dd4949e325" />
+<img width="1920" height="2822" alt="Vite-React-TS-08-14-2025_03_12_PM" src="https://github.com/user-attachments/assets/618d9b22-b6f5-4276-980a-a56085ec70ea" />
