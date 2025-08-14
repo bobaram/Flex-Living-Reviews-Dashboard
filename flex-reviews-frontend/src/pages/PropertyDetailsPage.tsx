@@ -37,7 +37,6 @@ const PropertyDetailsPage = ({ approvedReviews }: PropertyDetailsPageProps) => {
         <div className="min-h-screen bg-gray-50 p-6 font-inter text-gray-900">
             <header className="bg-white shadow-sm rounded-lg p-4 mb-6 flex justify-between items-center max-w-7xl mx-auto">
                 <h1 className="text-2xl font-bold text-gray-800">Flex Living Property Details</h1>
-                <p className="text-gray-600">This is a placeholder for the property details layout.</p>
             </header>
 
             <div className="max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-lg">
