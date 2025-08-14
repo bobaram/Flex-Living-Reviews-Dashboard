@@ -76,8 +76,14 @@ npm install
 
 Start the frontend development server:
 
+
 npm run dev
 
 The frontend application should now be running and accessible at http://localhost:5173 (or another port specified in your terminal).
 
 You can now interact with the Flex Living Reviews Dashboard in your web browser, switching between the dashboard and the property display page to see the features in action.
+
+
+<img width="1920" height="1158" alt="Vite-React-TS-08-14-2025_03_11_PM" src="https://github.com/user-attachments/assets/88f3c909-854e-44b6-857f-9030adeb0c06" />
+
+<img width="1920" height="1158" alt="Vite-React-TS-08-14-2025_03_11_PM" src="https://github.com/user-attachments/assets/2be15234-b0d1-4b6b-bc54-79dd4949e325" />
